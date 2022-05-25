@@ -19,7 +19,6 @@ jobs:
       - id: foo
         uses: nakatamixi/pr-pick-action@main
         with:
-          dry_run: true
           to: ${{github.event.inputs.to}}
           prs: ${{github.event.inputs.prs}}
           token: ${{ secrets.GITHUB_TOKEN }}
