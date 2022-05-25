@@ -1,4 +1,12 @@
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      prs:
+        required: true
+        description: ""
+      to:
+        required: true
+        description: ""
 
 jobs:
   test_job:
@@ -10,6 +18,6 @@ jobs:
         uses: nakatamixi/pr-pick-action@main
         with:
           dry_run: true
-          to: main
-          prs: 1,2
+          to: ${{github.event.inputs.to}}
+          prs: ${{github.event.inputs.prs}}
           token: ${{ secrets.GITHUB_TOKEN }}
